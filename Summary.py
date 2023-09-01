@@ -63,7 +63,7 @@ col1,col2 = st.columns([4,4])
 
 # Orignal Form Which is used to take input as text\
 
-with st.form(key='form1',clear_on_submit=True):
+with st.form(key='form1',clear_on_submit=False):
     name = st.text_input("Enter your Article")
 
     name = str(name)
