@@ -11,38 +11,67 @@ def model(data,s):
 
         response = requests.post(API_URL, headers=headers, json=payload)
         return response.json()
-    if s == 'Select':
-        output = "Please Select Size"
-    if s=='Very Small':
-        output = query({
-            "inputs" : data,
-            # "parameters" : {"min_length" : 200,"max_length":200},
-            "parameters" : {"min_length" : int(count/4)-10,"max_length":int(count/4)},
-        })
-    if s== 'Small':    
-        output = query({
-            "inputs" : data,
-            # "parameters" : {"min_length" : 200,"max_length":200},
-            "parameters" : {"min_length" : int(count/3)-10,"max_length":int(count/3)},
-        })
-    if s== 'Medium':    
-        output = query({
-            "inputs" : data,
-            # "parameters" : {"min_length" : 200,"max_length":200},
-            "parameters" : {"min_length" : int(count/2)-10,"max_length":int(count/2)},
-        })
-    if s== 'Large':    
-        output = query({
-            "inputs" : data,
-            # "parameters" : {"min_length" : 200,"max_length":200},
-            "parameters" : {"min_length" : int(count/1.5)-10,"max_length":int(count/1.5)},
-        })
-    if s == 'Very Large':
-        output = query({
-            "inputs" : data,
-            # "parameters" : {"min_length" : 200,"max_length":200},
-            "parameters" : {"min_length" : int(count/1.2)-10,"max_length":int(count/1.2)},
-        })
+    if count <= 750:
+        if s == 'Select':
+            output = "Please Select Size"
+        if s=='Very Small':
+            output = query({
+                "inputs" : data,
+                # "parameters" : {"min_length" : 200,"max_length":200},
+                "parameters" : {"min_length" : int(count/4)-10,"max_length":int(count/4)},
+            })
+        if s== 'Small':    
+            output = query({
+                "inputs" : data,
+                # "parameters" : {"min_length" : 200,"max_length":200},
+                "parameters" : {"min_length" : int(count/3)-10,"max_length":int(count/3)},
+            })
+        if s== 'Medium':    
+            output = query({
+                "inputs" : data,
+                # "parameters" : {"min_length" : 200,"max_length":200},
+                "parameters" : {"min_length" : int(count/2)-10,"max_length":int(count/2)},
+            })
+        if s== 'Large':    
+            output = query({
+                "inputs" : data,
+                # "parameters" : {"min_length" : 200,"max_length":200},
+                "parameters" : {"min_length" : int(count/1.5)-10,"max_length":int(count/1.5)},
+            })
+        if s == 'Very Large':
+            output = query({
+                "inputs" : data,
+                # "parameters" : {"min_length" : 600,"max_length":620},
+                "parameters" : {"min_length" : int(count/1.2)-10,"max_length":int(count/1.2)},
+            })
+    if count > 750:
+        if s == 'Select':
+            output = "Please Select Size"
+        if s=='Very Small':
+            output = query({
+                "inputs" : data,
+                "parameters" : {"min_length" : 400,"max_length":420},
+            })
+        if s=='Small':
+            output = query({
+                "inputs" : data,
+                "parameters" : {"min_length" : 450,"max_length":470},
+            })
+        if s=='Medium':
+            output = query({
+                "inputs" : data,
+                "parameters" : {"min_length" : 500,"max_length":520},
+            })
+        if s=='Large':
+            output = query({
+                "inputs" : data,
+                "parameters" : {"min_length" : 550,"max_length":570},
+            })
+        if s=='Very Large':
+            output = query({
+                "inputs" : data,
+                "parameters" : {"min_length" : 600,"max_length":620},
+            })
     output = str(output)
     return output
 
